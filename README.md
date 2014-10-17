@@ -49,3 +49,8 @@ Ideally, put this into a `crontab` to run, say, every 5 or 10 minutes. (Again th
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create a new Pull Request
+
+
+[god]: https://rubygems.org/gems/god "An easy to configure, easy to extend monitoring framework written in Ruby." 
+[monit]: http://mmonit.com/monit/ "System monitoring and error recovery"
+[sidekiq]: https://rubygems.org/gems/sidekiq "Simple, efficient background processing for Ruby"

@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |spec|
   spec.name          = "stupid-simple-monit"
-  spec.version       = "0.0.1"
+  spec.version       = "0.0.2"
   spec.authors       = ["Tamara Temple", "Kyle Kestell"]
   spec.email         = ["tamouse@gmail.com", "kyle@kestell.org"]
   spec.summary       = "A stupid, dead-simple, process monitor."
