@@ -1,13 +1,38 @@
-#!/usr/bin/env ruby
 require 'yaml'
 
-def config
-  @_config ||= YAML.load_file(ARGV[0] || 'config.yml').tap{|t| fail "config file empty" unless t.is_a?(Hash)}
+def process_exists?(pid)
+  begin
+    Process.kill 0, pid
+    return true
+  rescue
+    return false
+  end
 end
 
-def process_exists?
-  !!Process.kill(0, Integer(File.read(config.fetch('pidfile')))) rescue false
+config = YAML.load(File.read('config.yml'))
+pidfile = config['pidfile']
+
+respawn = true
+
+if File.exist?(pidfile)
+  pid = File.read(pidfile)
+
+  if pid == ''
+    puts "#{pidfile} is empty"
+  else
+    pid = pid.to_i
+    if process_exists?(pid)
+      puts 'process exists'
+      respawn = false
+    else
+      puts "process #{pid} doesn't exist"
+    end
+  end
+else
+  puts "#{pidfile} not found"
 end
 
-exit if process_exists?
-fail 'respawn failed' unless system(config.fetch('start_script'))
+if respawn
+  puts 'respawning'
+  system config['start_script']
+end
