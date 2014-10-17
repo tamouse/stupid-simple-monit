@@ -11,7 +11,7 @@ The genesis of this was a project that included [sidekiq][sidekiq] where the `si
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'simple-stupid-monit'
+gem 'stupid-simple-monit'
 ```
 
 And then execute:

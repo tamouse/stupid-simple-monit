@@ -1,4 +1,4 @@
 source 'https://rubygems.org'
 
-# Specify your gem's dependencies in simple-stupid-monit.gemspec
+# Specify your gem's dependencies in stupid-simple-monit.gemspec
 gemspec
